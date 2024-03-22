@@ -1,20 +1,26 @@
-import { useFormik } from 'formik'
-import { initialValues, validatioSchema } from '../utils/loginForm'
-import { LoginData } from '../types/auth'
+import { useFormik } from 'formik';
+import { initialValues, validatioSchema } from '../utils/loginForm';
+import { LoginData } from '../types/auth';
+import { useAuthContext } from '../hooks/useAuthContext';
+import { Auth } from '../api/auth';
 
-interface LoginFormProps {
-  handleSubmit: (formData: LoginData) => void
-}
+const authController = new Auth();
 
-export const LoginForm = ({ handleSubmit }: LoginFormProps) => {
+export const LoginForm = () => {
+  const { login } = useAuthContext();
+  const handleSubmit = async (formData: LoginData) => {
+    const result = await authController.login(formData);
+    console.log(result.data);
+    login(result.data);
+  };
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: validatioSchema(),
     validateOnChange: false,
     onSubmit: async (formValues) => {
-      handleSubmit(formValues)
+      handleSubmit(formValues);
     }
-  })
+  });
   return (
     <form onSubmit={formik.handleSubmit} className="w-[420px] text-white">
       <div className="flex flex-col">
@@ -61,5 +67,5 @@ export const LoginForm = ({ handleSubmit }: LoginFormProps) => {
         Login
       </button>
     </form>
-  )
-}
+  );
+};
