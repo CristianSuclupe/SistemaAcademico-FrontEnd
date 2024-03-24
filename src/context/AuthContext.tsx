@@ -2,6 +2,7 @@ import { createContext, useState, useEffect } from 'react';
 import { Token } from '../api/token';
 import { User } from '../types/user';
 import { AuthContextProps } from '../types/auth';
+import { useNavigate } from 'react-router-dom';
 
 const tokenController = new Token();
 
@@ -11,6 +12,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
@@ -28,7 +30,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     })();
   }, []);
 
-  console.log(user);
   const login = (token: string) => {
     if (!token) return null;
     tokenController.setToken(token);
@@ -42,6 +43,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     tokenController.removeToken();
     setUser(null);
     setToken(null);
+    navigate('/');
   };
 
   const data = {

@@ -10,8 +10,12 @@ export default {
       backgroundImage: {
         login: 'url(/images/login-fondo.webp)',
         degraded: 'radial-gradient(var(--main), var(--secondary))'
+      },
+      fontFamily: {
+        regular: ['Montserrat-regular', 'sans-serif'],
+        medium: ['Montserrat-medium', 'sans-serif']
       }
     }
   },
   plugins: []
-}
+};

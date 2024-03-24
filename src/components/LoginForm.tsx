@@ -10,7 +10,6 @@ export const LoginForm = () => {
   const { login } = useAuthContext();
   const handleSubmit = async (formData: LoginData) => {
     const result = await authController.login(formData);
-    console.log(result.data);
     login(result.data);
   };
   const formik = useFormik({
@@ -22,13 +21,21 @@ export const LoginForm = () => {
     }
   });
   return (
-    <form onSubmit={formik.handleSubmit} className="w-[420px] text-white">
-      <div className="flex flex-col">
-        <label>Seleccione un rol</label>
+    <form onSubmit={formik.handleSubmit} className="w-[480px] text-white">
+      <div className="flex flex-col mb-4">
+        <label htmlFor="rol" className="flex font-medium text-lg pl-7 mb-2">
+          <img
+            src="/images/iconrol.webp"
+            alt="icono de rol"
+            className="self-center mr-5"
+          />
+          Seleccione un rol
+        </label>
         <select
+          id="rol"
           name="rol"
           value={formik.values.rol}
-          className="border-white rounded-3xl border-[1px] bg-white bg-opacity-30 h-8"
+          className="border-white rounded-3xl border-[1px] bg-white bg-opacity-30 h-10 pl-5"
           onChange={formik.handleChange}
         >
           <option value="" className="text-black"></option>
@@ -40,29 +47,48 @@ export const LoginForm = () => {
           </option>
         </select>
       </div>
-      <div className="flex flex-col">
-        <label>Usuario</label>
+      <div className="flex flex-col mb-4">
+        <label htmlFor="user" className="flex font-medium text-lg pl-7 mb-2">
+          <img
+            src="/images/iconuser.webp"
+            alt="icono de rol"
+            className="self-center mr-5"
+          />
+          Usuario
+        </label>
         <input
+          id="user"
           type="text"
           name="user"
-          className="border-white rounded-3xl border-[1px] bg-white bg-opacity-30 text-white h-8"
+          className="border-white rounded-3xl border-[1px] bg-white bg-opacity-30 text-white h-10 pl-5"
           value={formik.values.user}
           onChange={formik.handleChange}
         />
       </div>
-      <div className="flex flex-col">
-        <label>Clave</label>
+      <div className="flex flex-col mb-14">
+        <label
+          htmlFor="password"
+          className="flex font-medium text-lg pl-7 mb-2"
+        >
+          <img
+            src="/images/iconpassword.webp"
+            alt="icono de rol"
+            className="self-center mr-5"
+          />
+          Clave
+        </label>
         <input
+          id="password"
           type="password"
           name="password"
-          className="border-white rounded-3xl border-[1px] bg-white bg-opacity-30 text-white h-8"
+          className="border-white rounded-3xl border-[1px] bg-white bg-opacity-30 text-white h-10 pl-5"
           value={formik.values.password}
           onChange={formik.handleChange}
         />
       </div>
       <button
         type="submit"
-        className="rounded-3xl bg-white text-black h-8 w-full"
+        className="rounded-3xl bg-white text-secondary h-10 w-full font-bold text-lg transition-[background, color] duration-500 hover:bg-main hover:text-white"
       >
         Login
       </button>
