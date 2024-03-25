@@ -1,6 +1,6 @@
-import { IRoutes } from '../types/routes'
+import { IRoutes } from '../types/routes';
 
 export const routes: IRoutes = {
-  LOGIN: '/',
+  LOGIN: '/login',
   HOME: '/'
-}
+};

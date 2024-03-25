@@ -7,6 +7,6 @@ export interface LoginData {
 export interface AuthContextProps {
   accessToken: string | null;
   user: UserData | null;
-  login: (token: string) => null | undefined;
+  login: (token: string) => void;
   logout: () => void;
 }

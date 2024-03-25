@@ -1,13 +1,10 @@
 import { Token } from '../api/token';
 
-interface Props {
-  url: string;
-  params?: {
-    headers?: Record<string, string>;
-  };
+interface Params {
+  headers?: Record<string, string>;
 }
 
-export const authFetch = async ({ url, params }: Props) => {
+export const authFetch = async (url: string, params?: Params) => {
   const tokenController = new Token();
   const token = tokenController.getToken();
 

@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     (async () => {
-      const token = tokenController.getToken();
+      const token = await tokenController.getToken();
 
       if (!token) {
         logout();
@@ -24,18 +24,26 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         return;
       }
 
-      if (tokenController.hasExpired(token)) logout();
-      else login(token);
+      if (tokenController.hasExpired(token)) {
+        logout();
+      } else {
+        login(token);
+      }
       return;
     })();
   }, []);
 
   const login = (token: string) => {
-    if (!token) return null;
-    tokenController.setToken(token);
-    const userLogged = tokenController.getUser(token);
-    setUser(userLogged);
-    setLoading(false);
+    try {
+      tokenController.setToken(token);
+      const userLogged = tokenController.getUser(token);
+      setUser(userLogged);
+      setToken(token);
+      setLoading(false);
+      navigate('/');
+    } catch (error) {
+      throw new Error();
+    }
   };
 
   const logout = () => {
@@ -43,7 +51,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     tokenController.removeToken();
     setUser(null);
     setToken(null);
-    navigate('/');
+    navigate('/login');
   };
 
   const data = {
