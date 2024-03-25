@@ -12,8 +12,11 @@ export default {
         degraded: 'radial-gradient(var(--main), var(--secondary))'
       },
       fontFamily: {
-        regular: ['Montserrat-regular', 'sans-serif'],
-        medium: ['Montserrat-medium', 'sans-serif']
+        Montserrat: ['Montserrat', 'sans-serif'],
+        medium: ['Montserrat', 'sans-serif']
+      },
+      borderRadius: {
+        bradius: '100% 0% 100% 0% / 0% 94% 6% 100%'
       }
     }
   },

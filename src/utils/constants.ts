@@ -4,7 +4,9 @@ export const ENV = {
   ENDPOINTS: {
     AUTH: {
       LOGIN: 'auth'
-    }
+    },
+    CLASS: 'class',
+    CLASS_TEACHER: 'class/teacher'
   },
   TOKEN: 'token'
-}
+};

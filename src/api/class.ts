@@ -1,17 +1,18 @@
-import { LoginData } from '../types/auth';
 import { authFetch } from '../utils/authFetch';
 import { ENV } from '../utils/constants';
+import { Token } from './token';
 
-export class Auth {
-  login = async (data: LoginData) => {
+const tokenController = new Token();
+export class Class {
+  getByTeacher = async (teacherId: string) => {
     try {
-      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.AUTH.LOGIN}`;
+      const token = await tokenController.getToken();
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.CLASS_TEACHER}/${teacherId}`;
       const params = {
-        method: 'POST',
         headers: {
+          Authorization: `Bearer ${token}`, // Pasa el token en el encabezado Authorization
           'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
+        }
       };
       const response = await authFetch(url, params);
       if (!response) return null;
