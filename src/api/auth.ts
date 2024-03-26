@@ -1,5 +1,4 @@
 import { LoginData } from '../types/auth';
-import { authFetch } from '../utils/authFetch';
 import { ENV } from '../utils/constants';
 
 export class Auth {
@@ -13,7 +12,7 @@ export class Auth {
         },
         body: JSON.stringify(data)
       };
-      const response = await authFetch(url, params);
+      const response = await fetch(url, params);
       if (!response) return null;
       const result = await response.json();
       return result;
