@@ -11,22 +11,22 @@ export const NavBar = () => {
         </li>
         <li>
           <Link to={routes.HOME}>
-            <img src="/images/iconprofile.webp" alt="icono home" />
+            <img src="/images/iconprofile.webp" alt="icono perfil" />
           </Link>
         </li>
         <li>
           <Link to={routes.HOME}>
-            <img src="/images/iconcalendar.webp" alt="icono home" />
+            <img src="/images/iconcalendar.webp" alt="icono calendario" />
           </Link>
         </li>
         <li>
           <Link to={routes.HOME}>
-            <img src="/images/icontime.webp" alt="icono home" />
+            <img src="/images/icontime.webp" alt="icono horario" />
           </Link>
         </li>
         <li>
           <Link to={routes.HOME}>
-            <img src="/images/iconhelp.webp" alt="icono home" />
+            <img src="/images/iconhelp.webp" alt="icono ayuda" />
           </Link>
         </li>
       </ul>

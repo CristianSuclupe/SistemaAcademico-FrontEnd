@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import { IClass } from '../types/class';
 
-interface CourseCardProps {
+interface ClassCardProps {
   classAux: IClass;
 }
-export const CourseCard = ({ classAux }: CourseCardProps) => {
+
+export const ClassCard = ({ classAux }: ClassCardProps) => {
   return (
-    <div className=" rounded-xl w-72 h-56 shadow-xl">
+    <div className="rounded-xl w-72 h-56 shadow-xl">
       <div className="h-1/2 rounded-t-xl bg-gradient-to-r from-secondary/90 via-secondary/80 to-main/90 relative">
         <img
           src="/images/icon.webp"

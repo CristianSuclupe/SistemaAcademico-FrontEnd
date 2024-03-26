@@ -4,10 +4,12 @@ import { Token } from './token';
 
 const tokenController = new Token();
 export class Class {
-  getByTeacher = async (teacherId: string) => {
+  getByTeacher = async () => {
     try {
       const token = await tokenController.getToken();
-      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.CLASS_TEACHER}/${teacherId}`;
+      if (!token) return null;
+      const teacher = await tokenController.getUser(token);
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.CLASS_TEACHER}/${teacher.id}`;
       const params = {
         headers: {
           Authorization: `Bearer ${token}`, // Pasa el token en el encabezado Authorization
