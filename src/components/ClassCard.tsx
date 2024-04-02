@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { IClass } from '../types/class';
+import {routes} from '../router/routes';
 
 interface ClassCardProps {
   classAux: IClass;
@@ -24,7 +25,7 @@ export const ClassCard = ({ classAux }: ClassCardProps) => {
         </p>
         <ul className="flex w-3/5 justify-between mt-3">
           <li>
-            <Link to={'/'}>
+            <Link to={routes.GRADEREGISTER.replace(':id', classAux.id)}>
               <img src="/images/iconnotes.webp" alt="icono de notas" />
             </Link>
           </li>

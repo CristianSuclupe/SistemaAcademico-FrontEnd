@@ -3,6 +3,7 @@ import { routes } from './routes';
 import { Login } from '../pages/Login';
 import { MainLayout } from '../layout/MainLayout';
 import { Home } from '../pages/Home';
+import { GradeRegister } from '../pages/GradeRegister';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />
+      },
+      {
+        path: routes.GRADEREGISTER,
+        element: <GradeRegister />,
       }
     ]
   }

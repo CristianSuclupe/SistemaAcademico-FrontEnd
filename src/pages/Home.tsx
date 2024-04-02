@@ -18,8 +18,8 @@ export const Home = () => {
   }, []);
 
   return (
-    <main className="p-10 font-Montserrat flex w-full">
-      <section className="w-3/4">
+    <>
+    <section className="w-3/4">
         <h1 className="text-secondary font-semibold text-3xl mb-10 tracking-normal">
           Cursos
         </h1>
@@ -30,6 +30,6 @@ export const Home = () => {
         </div>
       </section>
       <Records />
-    </main>
+    </>
   );
 };

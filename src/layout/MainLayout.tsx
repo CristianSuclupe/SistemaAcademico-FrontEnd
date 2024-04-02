@@ -9,7 +9,8 @@ export const MainLayout = () => {
       <Header />
       <div className="flex">
         <NavBar />
-        <Outlet />
+        <main className="p-10 font-Montserrat flex w-full"><Outlet /></main>
+        
       </div>
     </AuthProvider>
   );

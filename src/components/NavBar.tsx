@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import { routes } from '../router/routes';
+import { Link } from "react-router-dom";
+import { routes } from "../router/routes";
 export const NavBar = () => {
   return (
     <nav className="bg-main w-16 h-[870px] flex flex-col items-center pt-14 rounded-bradius">
@@ -30,9 +30,6 @@ export const NavBar = () => {
           </Link>
         </li>
       </ul>
-      <button>
-        <img src="/images/icon.webp" alt="icono" />
-      </button>
     </nav>
   );
 };

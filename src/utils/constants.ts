@@ -6,7 +6,8 @@ export const ENV = {
       LOGIN: 'auth'
     },
     CLASS: 'class',
-    CLASS_TEACHER: 'class/teacher'
+    CLASS_TEACHER: 'class/teacher',
+    STUDENTS_PER_CLASS: 'registration/class'
   },
   TOKEN: 'token'
 };
