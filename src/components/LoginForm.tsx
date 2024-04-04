@@ -1,8 +1,8 @@
-import { useFormik } from 'formik';
-import { initialValues, validatioSchema } from '../utils/loginForm';
-import { LoginData } from '../types/auth';
-import { useAuthContext } from '../hooks/useAuthContext';
-import { Auth } from '../api/auth';
+import { useFormik } from "formik";
+import { initialValues, validatioSchema } from "../utils/loginForm";
+import { LoginData } from "../types/auth";
+import { useAuthContext } from "../hooks/useAuthContext";
+import { Auth } from "../api/auth";
 
 const authController = new Auth();
 
@@ -18,7 +18,7 @@ export const LoginForm = () => {
     validateOnChange: false,
     onSubmit: async (formValues) => {
       handleSubmit(formValues);
-    }
+    },
   });
   return (
     <form onSubmit={formik.handleSubmit} className="w-[480px] text-white">
@@ -35,7 +35,7 @@ export const LoginForm = () => {
           id="rol"
           name="rol"
           value={formik.values.rol}
-          className="border-white rounded-3xl border-[1px] bg-white bg-opacity-30 h-10 pl-5"
+          className="border-white rounded-3xl border-[1px] bg-white bg-opacity-30 h-10 pl-5 focus:outline-none focus:ring-2 focus:ring-main"
           onChange={formik.handleChange}
         >
           <option value="" className="text-black"></option>
@@ -60,7 +60,7 @@ export const LoginForm = () => {
           id="user"
           type="text"
           name="user"
-          className="border-white rounded-3xl border-[1px] bg-white bg-opacity-30 text-white h-10 pl-5"
+          className="border-white rounded-3xl border-[1px] bg-white bg-opacity-30 text-white h-10 pl-5 focus:outline-none focus:ring-2 focus:ring-main"
           value={formik.values.user}
           onChange={formik.handleChange}
         />
@@ -81,14 +81,14 @@ export const LoginForm = () => {
           id="password"
           type="password"
           name="password"
-          className="border-white rounded-3xl border-[1px] bg-white bg-opacity-30 text-white h-10 pl-5"
+          className="border-white rounded-3xl border-[1px] bg-white bg-opacity-30 text-white h-10 pl-5 focus:outline-none focus:ring-2 focus:ring-main"
           value={formik.values.password}
           onChange={formik.handleChange}
         />
       </div>
       <button
         type="submit"
-        className="rounded-3xl bg-white text-secondary h-10 w-full font-bold text-lg transition-[background, color] duration-500 hover:bg-main hover:text-white"
+        className="rounded-3xl bg-white text-secondary h-10 w-full font-bold text-lg transition-[background, color] duration-500 hover:bg-main hover:text-white focus:outline-none focus:ring-2 focus:ring-main"
       >
         Login
       </button>
