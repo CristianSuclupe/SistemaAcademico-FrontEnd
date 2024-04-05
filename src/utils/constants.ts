@@ -1,6 +1,6 @@
 export const ENV = {
-  SERVER_HOST: import.meta.env.HOST,
-  API_URL: import.meta.env.API_URL,
+  SERVER_HOST: import.meta.env.VITE_HOST,
+  API_URL: import.meta.env.VITE_API_URL,
   ENDPOINTS: {
     AUTH: {
       LOGIN: "auth",
