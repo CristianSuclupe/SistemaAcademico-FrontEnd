@@ -1,16 +1,21 @@
+import { useState } from "react";
 import { useFormik } from "formik";
 import { initialValues, validatioSchema } from "../utils/loginForm";
 import { LoginData } from "../types/auth";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { Auth } from "../api/auth";
+import { LoaderSpinner } from "./LoaderSpinner";
 
 const authController = new Auth();
 
 export const LoginForm = () => {
+  const [loader, setLoader] = useState<boolean>(false);
   const { login } = useAuthContext();
   const handleSubmit = async (formData: LoginData) => {
+    setLoader(true);
     const result = await authController.login(formData);
     login(result.data);
+    setLoader(false);
   };
   const formik = useFormik({
     initialValues: initialValues(),
@@ -92,6 +97,11 @@ export const LoginForm = () => {
       >
         Login
       </button>
+      {loader && (
+        <div className="flex justify-center mt-5">
+          <LoaderSpinner />
+        </div>
+      )}
     </form>
   );
 };
