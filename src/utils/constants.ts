@@ -1,13 +1,13 @@
 export const ENV = {
-  SERVER_HOST: 'http://127.0.0.1:3000',
-  API_URL: 'http://127.0.0.1:3000/api',
+  SERVER_HOST: import.meta.env.HOST || "http://",
+  API_URL: import.meta.env.API_URL || "localhost:3000/api",
   ENDPOINTS: {
     AUTH: {
-      LOGIN: 'auth'
+      LOGIN: "auth",
     },
-    CLASS: 'class',
-    CLASS_TEACHER: 'class/teacher',
-    STUDENTS_PER_CLASS: 'registration/class'
+    CLASS: "class",
+    CLASS_TEACHER: "class/teacher",
+    STUDENTS_PER_CLASS: "registration/class",
   },
-  TOKEN: 'token'
+  TOKEN: "token",
 };
