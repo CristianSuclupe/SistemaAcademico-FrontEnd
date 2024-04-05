@@ -1,6 +1,6 @@
 export const ENV = {
-  SERVER_HOST: import.meta.env.HOST || "http://",
-  API_URL: import.meta.env.API_URL || "localhost:3000/api",
+  SERVER_HOST: import.meta.env.HOST,
+  API_URL: import.meta.env.API_URL,
   ENDPOINTS: {
     AUTH: {
       LOGIN: "auth",
