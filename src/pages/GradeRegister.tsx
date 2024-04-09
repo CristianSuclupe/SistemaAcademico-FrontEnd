@@ -20,11 +20,15 @@ export const GradeRegister = () => {
 
   return (
     <>
-      <section>
+      <section className="w-3/4">
         <h1 className="text-secondary font-semibold text-3xl mb-10 tracking-normal">
           Registrar Notas
         </h1>
-        <GradeTable students={stundets} />
+        {stundets.length > 0 ? (
+          <GradeTable students={stundets} />
+        ) : (
+          <p>Aún no hay estudiantes registrados</p>
+        )}
       </section>
     </>
   );

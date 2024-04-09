@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { ClassCard } from "../components/ClassCard";
 import { Class } from "../api/class";
 import { IClass } from "../types/class";
-import { Records } from "../components/Records";
 
 const classController = new Class();
 
@@ -33,7 +32,6 @@ export const Home = () => {
           )}
         </div>
       </section>
-      <Records />
     </>
   );
 };
